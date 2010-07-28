@@ -39,6 +39,10 @@ icon_DATA =				\
 	camera-external.svg		\
 	camera.svg			\
 	computer.svg			\
+	computer-error.svg              \
+	computer-happy.svg              \
+	computer-normal.svg             \
+	computer-sad.svg                \
 	computer-xo.svg			\
 	drive.svg			\
 	drive-harddisk.svg		\
