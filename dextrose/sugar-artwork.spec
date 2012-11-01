@@ -3,7 +3,7 @@
 Summary: Artwork for Sugar look-and-feel
 Name: sugar-artwork
 Epoch: 1
-Version: 0.97.6
+Version: 0.97.8
 Release: 2.dx4
 URL: http://sugarlabs.org
 Group: User Interface/Desktops
