@@ -29,6 +29,7 @@ look and feel.
 %setup -q
 
 %build
+autoreconf -i
 %configure
 make %{?_smp_mflags}
 
