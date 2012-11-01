@@ -43,6 +43,11 @@ else: # About 72% of the XO size, adjusted so that eg. toolbuttons work
 # so the SVG displays at the correct size.
 # FIXME this only works for 100, has not been tested in 75 resolution
 radio_size = 26
+
+# FIXME this should be calculated with the radio size and the bullet
+# size:
+scale_trough_margin = 8
+
 scale_slider_width = my_floor(2 * subcell_size + line_width)
 thickness = my_ceil(line_width)
 
@@ -66,7 +71,6 @@ icon_large = icon_base * 5
 
     -GtkWidget-focus-line-width: 0;  /* Prevents some drawing glitches */
     -GtkEntry-focus-line-width: 0;
-    -GtkScale-focus-line-width: 0;
     -GtkScale-focus-line-width: 0;
     -GtkWidget-focus-padding: 0;
     /* 0.05 works good for both the sugar and sugar-xo themes */
@@ -111,8 +115,8 @@ icon_large = icon_base * 5
     -GtkCheckButton-indicator-size: $radio_size;
     -GtkCheckButton-indicator-spacing: 3;
 
-    -GtkWidget-text-handle-width: 84px;
-    -GtkWidget-text-handle-height: 84px;
+    -GtkWidget-text-handle-width: 55px;
+    -GtkWidget-text-handle-height: 55px;
 }
 
 /* Backgrounds and windows */
@@ -163,8 +167,7 @@ GtkLabel, GtkLabel:insensitive {
     color: @white;
 }
 
-.button:focused,
-.button:active {
+.button:focused {
     border-color: @white;
 }
 
@@ -174,6 +177,7 @@ GtkLabel, GtkLabel:insensitive {
 
 .button:active:focused {
     color: @black;
+    border-color: @button_grey;
 }
 
 /* Spin buttons */
@@ -269,13 +273,15 @@ GtkTreeView row:nth-child(odd) {
     color: @black;
 }
 
-.entry:selected, .entry:selected:focused, 
+.entry:selected,
+.entry:selected:focused,
 .view:selected:focused {
     background-color: @selection_grey;
     color: @black;
 }
 
-.entry:selected, .entry:selected:focused {
+.entry:selected,
+.entry:selected:focused {
     border-color: @selection_grey;
 }
 
@@ -337,6 +343,14 @@ GtkComboBox .separator {
 
 BrowseTabPage {
     background-color: @black;
+}
+
+BrowseSearchWindow .view {
+    background-color: @black;
+    color: @white;
+    border-color: @button_grey;
+    border-width: 0 $(thickness)px $(thickness)px $(thickness)px;
+    border-style: solid;
 }
 
 /* Control panel */
@@ -570,35 +584,70 @@ SugarPaletteWindowWidget GtkScrolledWindow * {
 
 /* Scales */
 
-GtkScale {
+.scale {
     -GtkScale-slider-length: $scale_slider_width;
     -GtkRange-slider-width: $scale_slider_width;
 }
 
-GtkScale.trough {
-    background-color: @button_grey;
-    border-style: solid;
-    border-radius: 30px;
-    border-color: @button_grey;
-    border-width: 2px;
+/* We have to override the color of the scale, otherwise the slider
+   background image is invisible or not set for this palettes.
+   Upstream bug: https://bugzilla.gnome.org/show_bug.cgi?id=686703 */
+SugarPaletteWindowWidget .scale {
+    color: transparent;
 }
 
-GtkScale.trough:focused {
+.scale.trough {
+    background-color: @button_grey;
+    border-style: solid;
+    border-color: @button_grey;
+    border-width: $(thickness)px;
+    margin: $(scale_trough_margin)px 0;
+}
+
+.scale.trough.vertical {
+    margin: 0 $(scale_trough_margin)px;
+}
+
+.scale.trough:focused {
     border-color: @white;
 }
 
-GtkScale.trough.top, GtkScale.trough.left {
+.scale.trough.top,
+.scale.trough.left {
     background-color: @white;
 }
 
-GtkScale.slider {
-    color: alpha(@theme_base_color, 0.0);
-    background-color: alpha(@theme_base_color, 0.0);
+.scale.trough.top:focused,
+.scale.trough.left:focused {
+    border-color: @selection_grey;
+}
+
+.scale.trough {
+    border-radius: 0px $(2*subcell_size)px $(2*subcell_size)px 0px;
+}
+
+.scale.trough.vertical {
+    border-radius: 0px 0px $(2*subcell_size)px $(2*subcell_size)px;
+}
+
+.scale.trough.top {
+    border-radius: $(2*subcell_size)px $(2*subcell_size)px 0px 0px;
+}
+
+.scale.trough.left {
+    border-radius: $(2*subcell_size)px 0px 0px $(2*subcell_size)px;
+}
+
+.scale.slider,
+.scale.slider:active {
+    background-color: transparent;
+}
+
+.scale.slider {
     background-image: url("assets/scale-slider.svg");
 }
 
-GtkScale.slider:active {
-    color: alpha(@theme_base_color, 0.0);
+.scale.slider:active {
     background-image: url("assets/scale-slider-active.svg");
 }
 
@@ -690,21 +739,21 @@ SugarFrameWindow {
     background-color: @toolbar_grey;
 }
 
-/* Sugar Favorite Activity icon */
+/* Sugar Canvas icon */
 
-SugarFavoriteActivityIcon {
+SugarCanvasIcon {
     border-color: transparent;
     border-radius: $(4 * thickness)px;
     border-width: 2px;
     border-style: solid;
 }
 
-SugarFavoriteActivityIcon:prelight {
+SugarCanvasIcon:prelight {
     border-color: @zoom_views_prelight;
     background-color: @zoom_views_prelight;
 }
 
-SugarFavoriteActivityIcon:active {
+SugarCanvasIcon:active {
     border-color: @zoom_views_active;
     background-color: @zoom_views_active;
 }
@@ -731,4 +780,15 @@ SugarFavoriteActivityIcon:active {
 
 .cursor-handle.insert-cursor {
     background-image: url("assets/cursor-handle-insert.svg");
+}
+
+/* Application specific properties */
+
+EvView {
+    background-color: @panel_grey;
+}
+
+EvView:selected,
+ApDocView:selected {
+    background-color: @selection_grey;
 }
