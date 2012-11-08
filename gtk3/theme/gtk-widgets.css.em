@@ -115,8 +115,12 @@ icon_large = icon_base * 5
     -GtkCheckButton-indicator-size: $radio_size;
     -GtkCheckButton-indicator-spacing: 3;
 
-    -GtkWidget-text-handle-width: 55px;
-    -GtkWidget-text-handle-height: 55px;
+    -GtkWidget-text-handle-width: 110px;
+    -GtkWidget-text-handle-height: 110px;
+}
+
+*:insensitive {
+    color: @button_grey;
 }
 
 /* Backgrounds and windows */
@@ -220,7 +224,6 @@ GtkToggleButton.button:active {
     border-radius: 0px;
     padding: 0px;
     background-color: @white;
-    color: @black;
 }
 
 GtkTreeView {
@@ -293,6 +296,12 @@ GtkScrolledWindow.frame {
     border-width: $(thickness)px;
     border-radius: 0;
     padding: $(default_padding)px;
+}
+
+GtkFrame.frame.journal-preview-box {
+    border-style: solid;
+    border-color: @button_grey;
+    border-width: $(thickness)px;
 }
 
 /* Combo boxes */
@@ -396,6 +405,10 @@ SugarHTray * , SugarVTray * { background-color: @toolbar_grey;}
 SugarPaletteWindowWidget {
     background-color: @black;
     color: @white;
+}
+
+SugarPaletteWindowWidget .view {
+    color: @black;
 }
 
 SugarPaletteMenuWidget {
@@ -557,6 +570,7 @@ SugarPaletteWindowWidget GtkToolButton .button {
 .toolbar GtkToolButton .button:prelight,
 SugarPaletteWindowWidget GtkToolButton .button:prelight {
     background-color: @black;
+    border-radius: 0px;
 }
 
 .toolbar SugarRadioToolButton *:active,
@@ -653,16 +667,12 @@ SugarPaletteWindowWidget .scale {
 
 /* Radio and check buttons */
 
-GtkCheckButton {
-    color: @black;
-}
-
 GtkCheckButton:prelight {
     background-color: alpha(@theme_base_color, 0.0);
 }
 
-.toolbar GtkCheckButton *:active,
-SugarPaletteWindowWidget GtkCheckButton *:active {
+.toolbar GtkCheckButton,
+SugarPaletteWindowWidget GtkCheckButton {
     color: @theme_base_color;
 }
 
@@ -755,6 +765,24 @@ SugarCanvasIcon:prelight {
 
 SugarCanvasIcon:active {
     border-color: @zoom_views_active;
+    background-color: @zoom_views_active;
+}
+
+/* Sugar CellRenderer Icons */
+
+.cell.sugar-icon-cell {
+    background-color: transparent;
+    border-radius: $(4 * thickness)px;
+    border-color: @white;
+    border-width: $(thickness)px;
+    border-style: solid;
+}
+
+.cell.sugar-icon-cell:prelight {
+    background-color: @zoom_views_prelight;
+}
+
+.cell.sugar-icon-cell:active {
     background-color: @zoom_views_active;
 }
 
