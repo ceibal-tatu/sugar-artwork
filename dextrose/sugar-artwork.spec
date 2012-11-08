@@ -1,10 +1,49 @@
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 
+# Environment setup:
+#
+#       mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+#       echo | bzip2 -c > ~/rpmbuild/SOURCES/sugar-artwork-<version>.bz2
+#       cd ~/build/ && git clone git://git.sugarlabs.org/dextrose/sugar-artwork.git
+#       ln -s ~/build/sugar-artwork/dextrose/sugar-artwork.spec \
+#             ~/rpmbuild/SPECS/sugar-artwork.spec
+#       rpmbuild -ba ~/rpmbuild/SPECS/sugar-artwork.spec
+#
+
+%define git_repo sugar-artwork
+%define git_head devel
+
+%define git_repodir %(echo ~/build/)
+%define git_gitdir %{git_repodir}/%{git_repo}/.git
+
+%define git_get_source pushd %{git_repodir}/%{git_repo} ;\
+        /usr/bin/git archive --format=tar --prefix=%{name}-%{version}/ %{git_head} | \
+                bzip2 -c > %{_sourcedir}/%{name}-%{version}.tar.bz2 ;\
+        popd
+
+%define git_clone_source if [ -d %{name}-%{version} ] ; then \
+                cd %{name}-%{version} && git pull origin %{git_head} ; \
+        else \
+                git clone %{git_gitdir} %{name}-%{version} && \
+                cd %{name}-%{version}/ ; \
+        fi
+
+%define git_submodule git submodule
+%define git_prep_submodules %{git_submodule} init --cloned && %{git_submodule} update
+
+%define git_version %(git --git-dir=%{git_gitdir} describe --tags 2> /dev/null || echo 0.0-`git --git-dir=%{git_gitdir} log --oneline | wc -l`-g`git --git-dir=%{git_gitdir} describe --always`)
+
+# if the git repo has tags
+%define git_get_ver %(echo %{git_version} | sed 's/^v\\?\\(.*\\)-\\([0-9]\\+\\)-g.*$/\\1/;s/-//')
+%define git_get_rel %(echo %{git_version} | sed 's/^v\\?\\(.*\\)-\\([0-9]\\+-g.*\\)$/\\2/;s/-/_/')
+
+
+
 Summary: Artwork for Sugar look-and-feel
 Name: sugar-artwork
 Epoch: 1
-Version: 0.97.8
-Release: 2.dx4
+Version: %git_get_ver
+Release: %git_get_rel
 URL: http://sugarlabs.org
 Group: User Interface/Desktops
 License: LGPLv2+
@@ -26,9 +65,11 @@ sugar-artwork contains the themes and icons that make up the OLPC default
 look and feel.
 
 %prep
+%git_get_source
 %setup -q
 
 %build
+sh autogen.sh
 autoreconf -i
 %configure
 make %{?_smp_mflags}
@@ -48,7 +89,7 @@ touch --no-create %{_datadir}/icons/sugar || :
 
 %files
 %defattr(-,root,root)
-%doc README COPYING
+%doc README COPYING CHANGES
 
 %{_datadir}/icons/sugar
 %{_datadir}/themes/sugar-100/gtk-2.0/gtkrc
