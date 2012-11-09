@@ -820,3 +820,14 @@ EvView:selected,
 ApDocView:selected {
     background-color: @selection_grey;
 }
+
+/* Application specific properties */
+
+EvView {
+    background-color: @panel_grey;
+}
+
+EvView:selected,
+ApDocView:selected {
+    background-color: @selection_grey;
+}
