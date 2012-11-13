@@ -1,8 +1,518 @@
+commit 24df25dc5163d3775a4db6a70857b18e3d991986
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Wed Nov 14 00:49:37 2012 +0100
+
+    Create CHANGES file on build time
+
+commit c5b60ddfbe60f006dc3e07eb73dbaead1da01b95
+Merge: f29acde 45e4010
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Sun Nov 11 00:26:30 2012 +0100
+
+    Merge remote-tracking branch 'ajay/0.97.6-as-base' into devel
+
+commit 45e40104da35c3e1dc7dde0325c2e55e6550c3d0
+Merge: 1b4f1d7 7462db6
+Author: Ajay Garg <ajay@activitycentral.com>
+Date:   Sat Nov 10 18:44:35 2012 +0530
+
+    Merge tag 'v0.97.10' into 0.97.6-as-base
+    
+    Conflicts:
+    	gtk3/theme/gtk-widgets.css.em
+
+commit 1b4f1d7e5e9227a001c1e82c65fc3f4bb11abc71
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Sat Nov 10 11:53:38 2012 +0100
+
+    Release 0.97.10
+    
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 7462db6d85c796a7af0e7f8d00ce4b482682b0a5
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Sat Nov 10 11:53:38 2012 +0100
+
+    Release 0.97.10
+
+commit b7e0344c9e355724c1404251c3779dc1f79d4321
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Thu Nov 8 19:20:38 2012 -0300
+
+    Separators, make them the correct line width - SL #4175
+    
+    Setting -GtkWidget-wide-separators: true; allows configurable width [1]
+    
+    [1] http://developer.gnome.org/gtk3/stable/GtkWidget.html#GtkWidget--s-wide-separators
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Tested-by: Gary Martin <gary@garycmartin.com>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 268b07f415ed6c4803f51360090c827d6cedd248
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Thu Nov 8 19:20:38 2012 -0300
+
+    Separators, make them the correct line width - SL #4175
+    
+    Setting -GtkWidget-wide-separators: true; allows configurable width [1]
+    
+    [1] http://developer.gnome.org/gtk3/stable/GtkWidget.html#GtkWidget--s-wide-separators
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Tested-by: Gary Martin <gary@garycmartin.com>
+
+commit 89c7d3e431f0788a3e30d7db5933eaa2cff45bed
+Merge: 67349fd 2ee875f
+Author: Ajay Garg <ajay@activitycentral.com>
+Date:   Fri Nov 9 14:08:27 2012 +0530
+
+    Merge tag 'v0.97.9' into 0.97.6-as-base
+    
+    Conflicts:
+    	gtk3/theme/assets/cursor-handle-insert.svg
+
+commit 67349fd920103ef407da3d2e29cbb82ffcb4bd02
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Thu Nov 8 15:27:30 2012 +0100
+
+    This starts to gets a nice loop... Revert "Revert "TextHandle: adapt to new style class naming, part of #4152""
+    
+    This reverts commit 63979c55d1634cc6d8abdf7eb661293b6610b3c2.
+    
+    We finally fixed it in the GTK+3 rpm.
+    
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit f29acde805ecb6345b3d8a3ff7d5edf865399e9b
+Merge: 6c83646 2ee875f
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Thu Nov 8 23:03:21 2012 +0100
+
+    Merge tag 'v0.97.9' into devel
+
+commit 6c83646db7b901def49a8e90847b6fb23b43a6da
+Merge: 493d5b8 fd39a77
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Thu Nov 8 22:04:06 2012 +0100
+
+    Merge remote-tracking branch 'ajay/0.97.6-as-base' into devel
+    
+    Conflicts:
+    	configure.ac
+    Merge gnome warnings removal
+    	gtk3/theme/assets/cursor-handle-bottom.svg
+    	gtk3/theme/assets/cursor-handle-insert.svg
+    	gtk3/theme/assets/cursor-handle-top.svg
+    	gtk3/theme/gtk-widgets.css.em
+    Used ajay's version
+
+commit 493d5b8dbda335c083f752b7f61b006c76799f2c
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Thu Nov 8 21:55:42 2012 +0100
+
+    Removed gnome compile warnings due to arm build problems
+
+commit 588678676095a5dfc34409d67535fb61b77aca99
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Thu Nov 8 21:36:30 2012 +0100
+
+    Make rpm version/release be based on git
+
+commit 2fb266f6d09162b21f9a65afcb4f8d274ed462c0
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Thu Nov 8 21:35:52 2012 +0100
+
+    Added CHANGES file
+
+commit 560309b3c226678ebcc654d3dfed2401f6ee9a70
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Thu Nov 8 15:27:30 2012 +0100
+
+    This starts to gets a nice loop... Revert "Revert "TextHandle: adapt to new style class naming, part of #4152""
+    
+    This reverts commit 63979c55d1634cc6d8abdf7eb661293b6610b3c2.
+    
+    We finally fixed it in the GTK+3 rpm.
+
+commit fd39a77e55c35f83baf21f3c949278e1968726bc
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Wed Nov 7 20:01:36 2012 +0100
+
+    Release 0.97.9
+    
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 7e4452200de5544e8f8544338a80ccd8d9b90632
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Wed Nov 7 19:44:23 2012 +0100
+
+    Revert "TextHandle: adapt to new style class naming, part of #4152"
+    
+    This reverts commit 0f72292c2b38f4aff9dfe16dc627ec705bdda045.
+    
+    The patch for GTK+ is not fully packaged up.
+    
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 2ee875ffb21c04898adb6348fed7f2e1513f23fe
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Wed Nov 7 20:01:36 2012 +0100
+
+    Release 0.97.9
+
+commit 63979c55d1634cc6d8abdf7eb661293b6610b3c2
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Wed Nov 7 19:44:23 2012 +0100
+
+    Revert "TextHandle: adapt to new style class naming, part of #4152"
+    
+    This reverts commit 0f72292c2b38f4aff9dfe16dc627ec705bdda045.
+    
+    The patch for GTK+ is not fully packaged up.
+
+commit 377f84a4d092034826ff2a9c577232b4f31dd478
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Tue Nov 6 15:29:49 2012 +0100
+
+    TextHandle: adapt to new style class naming, part of #4152
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 7a898a5cd631c55866fd313cb07799f15ec6d10d
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Tue Nov 6 15:12:00 2012 +0100
+
+    Make text in a textview packed inside a Palette black, SL #4160
+    
+    This can be seen in the DescriptionButton in activity toolbar
+    in GTK+3 activities. The regression was introduced in
+    b2b0f26119d395140b3dd8011ff8272f17d21279, but making the text
+    in a textview packed in a Palette black explicitly is the
+    better approach anyhow.
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 1b211314c326b0838e81568bdcc9409bedddbbb0
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Mon Nov 5 17:51:30 2012 -0300
+
+    Fix GtkCheckButton color - SL #4145
+    
+    - don't force black color
+    - inside palettes or toolbars, set white for all states
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 0f72292c2b38f4aff9dfe16dc627ec705bdda045
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Tue Nov 6 15:29:49 2012 +0100
+
+    TextHandle: adapt to new style class naming, part of #4152
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+
+commit 599c6730decba9c36dab4949dcb4d350898bc12d
+Author: Simon Schampijer <simon@laptop.org>
+Date:   Tue Nov 6 15:12:00 2012 +0100
+
+    Make text in a textview packed inside a Palette black, SL #4160
+    
+    This can be seen in the DescriptionButton in activity toolbar
+    in GTK+3 activities. The regression was introduced in
+    b2b0f26119d395140b3dd8011ff8272f17d21279, but making the text
+    in a textview packed in a Palette black explicitly is the
+    better approach anyhow.
+    
+    Signed-off-by: Simon Schampijer <simon@laptop.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+
+commit 7cf359b20fd769c6e54317bb071b916d026a40c3
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Mon Nov 5 17:51:30 2012 -0300
+
+    Fix GtkCheckButton color - SL #4145
+    
+    - don't force black color
+    - inside palettes or toolbars, set white for all states
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+
+commit f36a4497f85240fbf81bafb5d95dd424356bed4e
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Mon Nov 5 08:23:29 2012 -0300
+
+    Add setting to invoke page up/page down on scrollbars clicks
+    
+    The default value of 'gtk-primary-button-warps-slider' in GTK+3 is
+    True[1] and in GTK+2 is False[2].  This patch sets the setting to
+    False in GTK+3 to keep the same behaviour as before.
+    
+    [1] http://developer.gnome.org/gtk3/stable/GtkSettings.html#GtkSettings--gtk-primary-button-warps-slider
+    [2] http://developer.gnome.org/gtk/2.24/GtkSettings.html#GtkSettings--gtk-primary-button-warps-slider
+    
+    Patch for sugar provided by Manuel Kaufmann and ported to artwork.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 8ce86a667d95deda8cc6058244e5f6a38ad3e846
+Author: Agustin Zubiaga <aguz@sugarlabs.org>
+Date:   Sun Sep 23 00:16:26 2012 -0300
+
+    Use 0px radius in GtkToolButton prelight state
+    
+    Signed-off-by: Agustin Zubiaga <aguz@sugarlabs.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit d5ae72c9f552e25fbb347dbea511a818a2aafc99
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Fri Oct 26 16:56:34 2012 -0300
+
+    Get back grey border to the frame that contains the preview image in Journal Details view - SL #3956
+    
+    Now done using a custom CSS class, previusly was done in the code of
+    hippocanvas.  See the changes in _create_preview in
+    jarabe/journal/expandedentry.py in shell commit d9fbf9db.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 22ec8fb0589342d890e7d00598bce523e20c392a
+Author: Gary Martin <gary@garycmartin.com>
+Date:   Wed Oct 31 22:46:16 2012 -0300
+
+    Increase size of text selection handles to improve touch target size - SL #4141
+    
+    Signed-off-by: Gary Martin <gary@garycmartin.com>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit a1d0bdb4ac4d11fb8dd131ff688af8eab96dca2e
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Wed Oct 31 22:29:52 2012 -0300
+
+    Style insensitive text - SL #4139
+    
+    This is the same as in GTK2 gtkrc rule: fg[INSENSITIVE] = $button_grey
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 871115e34e5683df486a415216a298a9846bb55c
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Wed Oct 17 09:47:15 2012 -0300
+
+    Style CellRendererIcon prelight and active state - SL #3989
+    
+    Use the same styling as the canvas icons.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit c9e6ccfc3f88645b59aa297f8a0674a202a05438
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Thu Oct 25 12:47:36 2012 -0300
+
+    Release 0.97.8
+    
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit b5776a3a946a1bc547e4fa9fdd83229f13357f9d
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Thu Oct 25 00:24:07 2012 -0300
+
+    Add style for Browse search window - SL #4049
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit d923685d708b713f653d80ed274f5e0ac73cd158
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Tue Oct 23 09:27:26 2012 -0300
+
+    Override color for slider in sugar palette window widgets - SL #4082
+    
+    This was causing the slider background image to be invisible or not
+    set for the palettes of kind _PaletteWindowWidget.  I filled a bug
+    upstream https://bugzilla.gnome.org/show_bug.cgi?id=686703
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 25047adfcb2a352a83990e5a9ca3040c275ce2be
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Mon Oct 22 22:28:34 2012 -0300
+
+    Buttons: Get back grey border for pressed state.
+    
+    Otherwise the buttons are not visible if they are in white background,
+    like in the Control Panel or the Intro Window.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 2a34bdea94b4062a9273f6648a172055cf107277
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Sat Oct 20 13:27:12 2012 -0300
+
+    Style Evince and Abiword viewers - SL #4055
+    
+    Also fix code styling in entry:selected rules.
+    
+    Evince commit for reference: 36d7e9ec3306b48803787d1d1ed79756677b93dd
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Gonzalo Odiard <gonzalo@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 9089c099c9651d8d752dc7790d7a313b1b2eca3f
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Tue Oct 16 15:49:09 2012 -0300
+
+    Release 0.97.7
+    
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 3d959abc10525c05989c884869db8cd3738f916f
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Tue Oct 9 22:00:34 2012 -0300
+
+    GtkScale: Add margin to the scale trough to recover the original style - SL #3983
+    
+    This is the same thing that current Adwaita theme does in
+    gnome-themes-standard to make the trough smaller than the slider.
+    
+    The margin value is hardcoded to get it right in the XO sugar-100
+    theme, but should be calculated later, when we fix the sugar-72 theme.
+    It looks like we will need different SVG images for that theme too.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 0db18abb2195e4885e38e747a9c92b9f6ff90ce5
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Tue Oct 9 21:34:36 2012 -0300
+
+    GtkScale: remove inner radius from the trough - SL #3983
+    
+    This is specially noticeable when the scale slider is not visible,
+    which is the case of the current palettes.  But is good to fix it
+    anyway because we cannot depend on the slider to hide it, the bug
+    might be noticeable with the slider above too.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 2ad805810964400b50b3a3adfb4929013848b50a
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Tue Oct 9 21:21:58 2012 -0300
+
+    GtkScale: set grey border for focused white fill bar - SL #3983
+    
+    Make the filled size of the bar visible in white backgrounds when the
+    widget is focused.  Gets closer to the Gtk2 look.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit 164e0b06eb5139ae1784c71483f1ce75570818e8
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Tue Oct 9 21:15:58 2012 -0300
+
+    GtkScale: use .slider CSS class and remove harcoded numbers
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit d9f1dbd2c83687eee490252f8424cbe107e17c5d
+Author: Gary Martin <gary@garycmartin.com>
+Date:   Mon Oct 15 01:23:47 2012 +0100
+
+    Improve graphics for the text selection handles - SL #4032
+    
+    Correct 55x55 unit sized svg touch handles and insertion point assets,
+    and updated .css for 55x55 size.
+    
+    Signed-off-by: Gary Martin <gary@garycmartin.com>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit aff10e8cb63b0415681d2e050128718eeb79caf4
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Wed Oct 10 16:26:03 2012 -0300
+
+    Move styles from SugarActivityIcon to SugarCanvasIcon - SL #3989
+    
+    This is because of the generalization made in the toolkit that will
+    allow to style other icons like the activity icons in the home
+    favourites view.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+    Signed-off-by: Ajay Garg <ajay@activitycentral.com>
+
+commit a138cf04714a3e871d6ca9ff07c91f399d0f8b15
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Mon Nov 5 08:23:29 2012 -0300
+
+    Add setting to invoke page up/page down on scrollbars clicks
+    
+    The default value of 'gtk-primary-button-warps-slider' in GTK+3 is
+    True[1] and in GTK+2 is False[2].  This patch sets the setting to
+    False in GTK+3 to keep the same behaviour as before.
+    
+    [1] http://developer.gnome.org/gtk3/stable/GtkSettings.html#GtkSettings--gtk-primary-button-warps-slider
+    [2] http://developer.gnome.org/gtk/2.24/GtkSettings.html#GtkSettings--gtk-primary-button-warps-slider
+    
+    Patch for sugar provided by Manuel Kaufmann and ported to artwork.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
+
+commit b3d4fad9ebe79859584ff69bc270e61127fa7447
+Author: Agustin Zubiaga <aguz@sugarlabs.org>
+Date:   Sun Sep 23 00:16:26 2012 -0300
+
+    Use 0px radius in GtkToolButton prelight state
+    
+    Signed-off-by: Agustin Zubiaga <aguz@sugarlabs.org>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+
 commit e059294aa1c8af270a022022677f5707d81406b7
 Author: Santiago Collazo <scollazo@activitycentral.com>
 Date:   Thu Nov 1 17:53:54 2012 -0400
 
     Added autoreconf to spec
+
+commit 2990a7b0d2278ecd3a19c9bb4f8ff4dac758df5d
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Fri Oct 26 16:56:34 2012 -0300
+
+    Get back grey border to the frame that contains the preview image in Journal Details view - SL #3956
+    
+    Now done using a custom CSS class, previusly was done in the code of
+    hippocanvas.  See the changes in _create_preview in
+    jarabe/journal/expandedentry.py in shell commit d9fbf9db.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
 
 commit 8fea6da12c15ce1cb9f4835e9287407880d5262c
 Author: Santiago Collazo <scollazo@activitycentral.com>
@@ -16,6 +526,36 @@ Author: Santiago Collazo <scollazo@activitycentral.com>
 Date:   Thu Nov 1 07:51:55 2012 -0400
 
     Merge tag 'v0.97.8' into devel
+
+commit 416458bb70dbdc49826e91de954f8dd14b24f9bd
+Author: Gary Martin <gary@garycmartin.com>
+Date:   Wed Oct 31 22:46:16 2012 -0300
+
+    Increase size of text selection handles to improve touch target size - SL #4141
+    
+    Signed-off-by: Gary Martin <gary@garycmartin.com>
+    Acked-by: Manuel Quiñones <manuq@laptop.org>
+
+commit b2b0f26119d395140b3dd8011ff8272f17d21279
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Wed Oct 31 22:29:52 2012 -0300
+
+    Style insensitive text - SL #4139
+    
+    This is the same as in GTK2 gtkrc rule: fg[INSENSITIVE] = $button_grey
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+
+commit d23b98c86117563c71ef583ce4137e548863ea62
+Author: Manuel Quiñones <manuq@laptop.org>
+Date:   Wed Oct 17 09:47:15 2012 -0300
+
+    Style CellRendererIcon prelight and active state - SL #3989
+    
+    Use the same styling as the canvas icons.
+    
+    Signed-off-by: Manuel Quiñones <manuq@laptop.org>
+    Acked-by: Simon Schampijer <simon@laptop.org>
 
 commit 5d52c195fbd77764c4d8d7ecb1f36f9ddcca6f51
 Author: Santiago Collazo <scollazo@activitycentral.com>
