@@ -98,6 +98,8 @@ touch --no-create %{_datadir}/icons/sugar || :
 %{_datadir}/icons/sugar
 %{_datadir}/themes/sugar-100/gtk-2.0/gtkrc
 %{_datadir}/themes/sugar-72/gtk-2.0/gtkrc
+%{_datadir}/themes/sugar-100-contrast/gtk-2.0/gtkrc
+%{_datadir}/themes/sugar-72-contrast/gtk-2.0/gtkrc
 %{_libdir}/gtk-2.0/*/engines/*.so
 
 #gtk3
