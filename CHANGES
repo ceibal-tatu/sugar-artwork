@@ -1,3 +1,15 @@
+commit 14ab32abed56e360ebad5cd4aaa902f2d09df754
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Thu Nov 15 22:28:40 2012 +0100
+
+    Added contrast gtkrc config files
+
+commit 60aad824c48cbe268f8ff26c9c26cea05564631e
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Thu Nov 15 22:24:50 2012 +0100
+
+    Updated CHANGES file
+
 commit 48fb785ea0c3693a2ccf8bcbd4ada7d1ee03bf98
 Merge: 0a1b5c3 4c382f8
 Author: Santiago Collazo <scollazo@activitycentral.com>
