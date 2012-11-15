@@ -1,8 +1,33 @@
+commit 48fb785ea0c3693a2ccf8bcbd4ada7d1ee03bf98
+Merge: 0a1b5c3 4c382f8
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Thu Nov 15 22:22:01 2012 +0100
+
+    Merge remote-tracking branch 'ajay/0.97.6-as-base' into devel
+
+commit 0a1b5c34688db1f8a53598bd8a6d5f394269ff92
+Author: Santiago Collazo <scollazo@activitycentral.com>
+Date:   Wed Nov 14 00:50:15 2012 +0100
+
+    Updated CHANGES file
+
 commit 24df25dc5163d3775a4db6a70857b18e3d991986
 Author: Santiago Collazo <scollazo@activitycentral.com>
 Date:   Wed Nov 14 00:49:37 2012 +0100
 
     Create CHANGES file on build time
+
+commit 4c382f8c23b3681f9a50522ea215b87fdd391d27
+Author: Unknown <unknown@unknown.org>
+Date:   Mon Nov 1 18:44:15 2010 +0100
+
+    accessibility_0002_virtualkeyboard_icon.patch
+
+commit 0024cc21721097d62695b32217b7765ec4595187
+Author: Unknown <unknown@unknown.org>
+Date:   Mon Nov 1 18:43:59 2010 +0100
+
+    accessibility_0001_contrast.patch
 
 commit c5b60ddfbe60f006dc3e07eb73dbaead1da01b95
 Merge: f29acde 45e4010
