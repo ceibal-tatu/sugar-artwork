@@ -93,7 +93,7 @@ touch --no-create %{_datadir}/icons/sugar || :
 
 %files
 %defattr(-,root,root)
-%doc README COPYING CHANGES
+%doc README COPYING NEWS
 
 %{_datadir}/icons/sugar
 %{_datadir}/themes/sugar-100/gtk-2.0/gtkrc
