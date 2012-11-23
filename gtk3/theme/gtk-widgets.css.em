@@ -147,11 +147,6 @@ GtkLabel, GtkLabel:insensitive {
     background-color: transparent;
 }
 
-/* Handle this differently? */
-.window *:insensitive {
-    background-color: @panel_grey;
-}
-
 /* Buttons */
 
 .button {
@@ -177,6 +172,10 @@ GtkLabel, GtkLabel:insensitive {
 
 .button:active {
     background-color: @white;
+}
+
+.button:insensitive {
+    background-color: transparent;
 }
 
 .button:active:focused {
@@ -334,6 +333,7 @@ GtkComboBox .separator {
 /* sure the buttons get black color in the next two rules: */
 .notebook tab GtkLabel {
     color: @white;
+    padding: $(subcell_size)px 0;
 }
 
 .notebook tab .button GtkLabel {
@@ -540,7 +540,7 @@ GtkProgressBar.trough {
 .separator {
     border-style: solid;
     border-color: @button_grey;
-    border-width: $thickness;
+    border-width: $(thickness)px;
 }
 
 /* Tool buttons */
@@ -556,6 +556,10 @@ SugarPaletteWindowWidget SugarRadioToolButton .button {
     border-color: transparent;
     border-radius: 0px;
     border-style: none;
+}
+
+.toolbar .button #gtk-toolbar-arrow {
+    padding: 0 $(subcell_size + default_padding)px;
 }
 
 .toolbar GtkToolButton .button,
