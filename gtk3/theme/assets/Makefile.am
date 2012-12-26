@@ -16,6 +16,10 @@ assets =			\
 
 sugar72dir = $(datadir)/themes/sugar-72/gtk-3.0/assets
 sugar100dir = $(datadir)/themes/sugar-100/gtk-3.0/assets
+sugar72contrastdir = $(datadir)/themes/sugar-72-contrast/gtk-3.0/assets
+sugar100contrastdir = $(datadir)/themes/sugar-100-contrast/gtk-3.0/assets
 
 dist_sugar72_DATA = $(assets)
 dist_sugar100_DATA = $(assets)
+dist_sugar72contrast_DATA = $(assets)
+dist_sugar100contrast_DATA = $(assets)
