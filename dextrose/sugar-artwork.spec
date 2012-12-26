@@ -104,11 +104,12 @@ touch --no-create %{_datadir}/icons/sugar || :
 %{_datadir}/themes/sugar-100/gtk-3.0/gtk-widgets.css
 %{_datadir}/themes/sugar-100/gtk-3.0/settings.ini
 %{_datadir}/themes/sugar-100/gtk-3.0/assets/*
+%{_datadir}/themes/sugar-100-contrast/gtk-3.0/*
 %{_datadir}/themes/sugar-72/gtk-3.0/gtk.css
 %{_datadir}/themes/sugar-72/gtk-3.0/gtk-widgets.css
 %{_datadir}/themes/sugar-72/gtk-3.0/settings.ini
 %{_datadir}/themes/sugar-72/gtk-3.0/assets/*
-
+%{_datadir}/themes/sugar-72-contrast/gtk-3.0/*
 %changelog
 * Tue Oct 16 2012 Daniel Drake <dsd@laptop.org> 0.97.7-1
 - 0.97.7 devel release
