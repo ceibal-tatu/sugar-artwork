@@ -1,554 +1,692 @@
-${
-import math
-
-def my_floor(num):
-    return int(math.floor(num))
-
-def my_ceil(num):
-    return int(math.ceil(num))
 
 
-# Should we set the line width in the engine to 2.25, and draw non pixel aligned lines?
-# Are these already the correct sizes for the XO?
+* {
+    -sugar-focus-line: @white;
 
-# These sizes need to be sanity checked ...
-if scaling == "100":
-    xo = True
-    icon_base = 11
-else: # About 72% of the XO size, adjusted so that eg. toolbuttons work
-    xo = False
-    icon_base = 8               # 7.92
+    /* A lot of these will probably need to be changed, but this has to
+       be done when the exact sizes are known */
+    -GtkWidget-interior-focus: 0;
 
-}
-${
-icon_small = icon_base * 3
-icon_large = icon_base * 5
+    /* we have to disable focus border for GtkTreeView, see #1261 */
+    -GtkTreeView-interior-focus: 1;
+    -GtkTreeView-focus-line-width: 0;
 
-small_icons = [ "gtk-menu", "gtk-dnd", "gtk-small-toolbar", "gtk-button" ]
-large_icons = [ "gtk-large-toolbar" ]
+    -GtkTextView-interior-focus: 1;
 
-icon_sizes = []
-for icon in small_icons:
-    icon_sizes += [icon + "=" + str(icon_small) + ',' + str(icon_small)]
-for icon in large_icons:
-    icon_sizes += [icon + "=" + str(icon_large) + ',' + str(icon_large)]
+    -GtkWidget-focus-line-width: 0;  /* Prevents some drawing glitches */
+    -GtkEntry-focus-line-width: 0;
+    -GtkScale-focus-line-width: 0;
+    -GtkWidget-focus-padding: 0;
+    /* 0.05 works good for both the sugar and sugar-xo themes */
+    -GtkWidget-cursor-aspect-ratio: 0.05;
 
-icon_sizes = ":".join(icon_sizes)
+    -GtkWidget-wide-separators: true;
+    -GtkWidget-separator-height: 2;
+    -GtkWidget-separator-width: 2;
 
-}
-gtk-icon-sizes="$icon_sizes"
+    -GtkWidget-scroll-arrow-hlength: 11;
+    -GtkWidget-scroll-arrow-vlength: 11;
 
-style "default"   
-{ 
-  engine "hcengine" {
-    edge_thickness = 2
-  }
+    -GtkRange-activate-slider: 1;
 
-  xthickness = 2
-  ythickness = 2
+    /* We fake the default border in the theme */
+    -GtkButton-default-border: 0 0 0 0;
+    -GtkButton-default-outside-border: 0 0 0 0;
+    -GtkButton-image-spacing: 11;
 
-# For Java Desktop System
-  PanelMenu::stripe-gradient-top = "#000033"
-  PanelMenu::stripe-gradient-bottom = "#000033"
-  
-  GtkWidget::interior-focus = 1
-  GtkWidget::wide-separators = 0
-  GtkWidget::separator-height = 2
-  GtkWidget::separator-width = 2
-  GtkRange::activate-slider = 1
-  GtkArrow::arrow-size = 1.0
-  GtkToolbar::shadow-type = GTK_SHADOW_NONE
-  GtkToolbar::space-size = 30
-  GtkProgressBar::min-horizontal-bar-height = 15
-  GtkProgressBar::min-vertical-bar-width = 15
+    -GtkEntry-progress-border: 2 2 2 2;
 
-  GtkWidget::link-color = "#FFFFFF"
-  GtkWidget::visited-link-color = "#FFCCFF"
-  GtkWidget::focus-line-pattern = "\4\2"
-  GtkWidget::focus-line-width = 5 
-  GtkHSV::focus-line-pattern = "\0"
-  GtkWidget::interior_focus = 1
-  GtkWidget::focus-padding = 0
-  GtkEntry::cursor_color    = "#FF0000" 
-  GtkTextView::cursor_color    = "#FF0000"
-  EelEditableLabel::cursor_color    = "#FF0000"
-  GtkTextView::cursor_aspect_ratio = 0.3
-  GtkEntry::cursor_aspect_ratio = 0.3
-  EelEditableLabel::cursor_aspect_ratio = 0.3
-  NautilusIconContainer::frame_text = 1
-  GtkTreeView::expander-size = 32
-  GtkRange::stepper-size = 20
-  
+    -GtkScrolledWindow-scrollbar-spacing: 0;
 
-  GtkCheckButton::indicator-size = 25
-  
-  fg[NORMAL]      = "#FFFFFF"
-  text[NORMAL]    = "#FFFFFF"
-  bg[NORMAL]      = "#000033" 
-  base[NORMAL]    = "#000033"
+    -GtkExpander-expander-size: 17;
+    -GtkExpander-expander-spacing: 2;
 
-  fg[INSENSITIVE]      = "#999999"
-  bg[INSENSITIVE]      = "#333333"
-  text[INSENSITIVE]      = "#999999"
-  base[INSENSITIVE]      = "#333333"
+    -GtkTreeView-expander-size: 17;
 
-  fg[PRELIGHT]    = "#000000"	
-  text[PRELIGHT]    = "#003333"
-  bg[PRELIGHT] = "#CCCC00"
-  base[PRELIGHT]    = "#FFFFFF"
+    -GtkArrow-arrow-size: 1.0;
 
-  fg[ACTIVE]      = "#FFFFFF"
-  text[ACTIVE] = "#000000" 
-  bg[ACTIVE]      = "#666699"
-  base[ACTIVE]      = "#CCCC00"
+    -GtkToolbar-space-size: 22;
+    -GtkToolbar-shadow-type: none;
 
-  fg[SELECTED]    = "#000033"
-  text[SELECTED]    = "#000033"
-  bg[SELECTED]    = "#FFFFFF"
-  base[SELECTED]    = "#CCCC00"
+    -GtkProgressBar-min-horizontal-bar-height: 11;
+    -GtkProgressBar-min-vertical-bar-width: 11;
 
+    -GtkButtonBox-child-min-height: 33;
+    -GtkButtonBox-child-min-width: 33;
+    -GtkButtonBox-child-internal-pad-x: 0;
+    -GtkButtonBox-child-internal-pad-y: 0;
 
+    -GtkCheckButton-indicator-size: 26;
+    -GtkCheckButton-indicator-spacing: 3;
+
+    -GtkWidget-text-handle-width: 110px;
+    -GtkWidget-text-handle-height: 110px;
 }
 
-class "GtkWidget" style "default"
-
-style "panel-icons"
-{
-
-}
-class "GtkWidget" style "panel-icons"
-style "media-icons"
-{
-
-}
-class "GtkWidget" style "media-icons"
-
-###########widget - details
-
-style "window"
-{
-
+* {
+    border-color: @white;
 }
 
-style "window-child"
-{
-
+*:insensitive {
+    color: @button_grey;
 }
 
-style "white-bg"
-{
-
+*:hover {
+    background-color: #CCCC00;
 }
 
-style "white-bg-child"
-{
+/* Backgrounds and windows */
 
+GtkWindow {
+    background-color: @panel_grey;
+    color: @black;
 }
 
-style "black-bg"
-{
-
+GtkDialog {
+    background-color: @black;
+    color: @white;
 }
 
-style "black-bg-child"
-{
-
+SugarIntroWindow {
+    background-color: @white;
 }
 
-
-style "groupbox-panel"
-{
-
+SugarIntroWindow {
+    color: @black;
 }
 
-style "groupbox-panel-child"
-{
-
+GtkLabel, GtkLabel:insensitive {
+    background-color: transparent;
+    color: @white;
 }
 
-style "groupbox-palette"
-{
+/* Buttons */
 
-}
-
-style "groupbox-palette-child"
-{
-
-}
-
-style "menu"
-{
-    bg[PRELIGHT] = "#000033"
-
-    GtkMenu::scroll-arrow-vlength = 25
-    GtkMenu::horizontal-padding = 2
-    GtkMenu::vertical-padding   = 2
-    # This means the outline of the submenu overlaps with a palette.
-    # However in the case of two normal menus, they are next to each other.
-    # It is not possible to be smarter about this, because the style comes from
-    # the submenu.
-    GtkMenu::horizontal-offset  = 0
-    GtkMenu::vertical-offset    = 0
-
-    xthickness = 0
-    ythickness = 0
-}
-
-style "palette-menu" = "menu"
-{
-    GtkMenu::horizontal-padding = 0
-    GtkMenu::vertical-padding   = 0
-
-    xthickness = 0
-    ythickness = 15
-
-    fg[NORMAL]="#FFFFFF"
-}
-
-# Can this all be moved in the menuitem style?
-style "menu-child"
-{
-    fg[NORMAL]="#FFFFFF"
-    base[NORMAL] = "#FFFFFF"
-
-}
-
-
-
-#########################################################
-#########################################################
-
-
-style "textview"
-{
-    text[NORMAL]="#000000"
-    base[NORMAL]="#FFFFFF"
-
-    GtkTextView::interior-focus = 1
-}
-
-style "scrollbar"
-{
-    fg[NORMAL]="#FFFFFF"
-    fg[ACTIVE]="#FFFFFF"
-    base[NORMAL]="#FFFFFF"
-    base[ACTIVE]="#FFFFFF"
-}
-
-# hints for the trough padding hacks
-# We cannot go trough GTK+, as we don't want a padding on all sides, but only one
-# If we wanted padding on all sides, trough-border would work great.
-style "hscrollbar" = "scrollbar"
-{
-
-}
-
-style "vscrollbar" = "scrollbar"
-{
-
-}
-
-style "hscrollbar-scrolled-window"
-{
+.button {
     
+    /* It would be nicer to just set the inner-border, but that does not work
+       for combo boxes ... The combobox ignores it, so set it to 0px
+       See http://bugzilla.gnome.org/show_bug.cgi?id=485762 */
+
+    -GtkButton-inner-border: 0 0 0 0;
+    padding: 5px 5px 5px 5px;
+
+    border-width: 2px;
+    border-style: solid;
+    color: @white;
 }
 
-style "vscrollbar-scrolled-window"
-{
-  
+.button:focused {
+    border-color: @white;
 }
 
-style "scale"
-{
-    GtkWidget::focus-line-width = 0
-
-    fg[NORMAL]="#FFFFFF"
-    fg[ACTIVE]="#FFFFFF"  
-
-    # "square" slider (really round of course)
-    # Same as indicator-size?
-    GtkRange::slider-width = 32
-    GtkScale::slider-length = 32
-    GtkRange::trough-border = 0
-    GtkRange::stepper-spacing = 0
-    GtkRange::trough-side-details = 1
+.button:active:focused {
+    color: @black;
 }
 
-# hints for the trough sizing hacks
-style "hscale" = "scale"
-{
+/* Spin buttons */
 
+.spinbutton.button {
+    border-radius: 0px;
+    border-width: 0px;
+    border-style: solid;
 }
 
-style "vscale" = "scale"
-{
-
-}
-
-style "spinbutton"
-{
-    xthickness = 15
-    ythickness = 7
-    GtkWidget::focus-line-width = 0
+.spinbutton.button:last-child {
+    border-width: 0px 0px 0px 2px;
+    border-style: solid;
 }
 
 
-style "frame"
-{
+/* Toggle buttons */
 
+GtkToggleButton.button:active {
+    color: @black;
 }
 
-style "notebook-tab"
-{
-    fg[NORMAL] = "#FFFFFF"
+/* Entries and views */
+
+.view {
+    border-width: 0px;
+    border-style: none;
+    border-radius: 0px;
+    padding: 0px;
+    background-color: @white;
 }
 
-style "notebook-panel"
-{
-   fg[NORMAL] = "#FFFFFF"
+GtkTreeView {
+    background-color: @button_grey;
 }
 
-style "toolbox-notebook"
-{
-   fg[NORMAL] = "#FFFFFF"
+GtkTreeView row:nth-child(even) {
+    background-color: @row_even;
+}
+GtkTreeView row:nth-child(odd) {
+    background-color: @row_odd;
 }
 
-style "toolbutton"
-{
-   fg[NORMAL] = "#FFFFFF"
-}
-
-style "separatortoolbutton"
-{
-    fg[NORMAL] = "#FFFFFF"
-}
-
-style "toolbar"
-{
-
-}
-
-style "toolbox"
-{
-   fg[NORMAL] = "#000033"
-}
-
-style "panel"
-{
-
-}
-
-style "entry"
-{
-    fg[NORMAL] = "#000000"
-    base[NORMAL] = "#FFFFFF"
-    text[NORMAL] = "#000000"
-}
-
-style "button"
-{
-    fg[NORMAL] = "#FFFFFF"
-}
-
-style "combobox"
-{
-    base[NORMAL] = "#FFFFFF"
-}
-
-style "comboboxentry"
-{
-    fg[NORMAL]="#FFFFFF" 
-}
-
-style "checkbutton"
-{
-   fg[NORMAL] = "#FFFFFF"
-}
-
-style "progressbar"
-{
-
-}
-
-style "menuitem"
-{
-    GtkMenuItem::horizontal-padding = 0
-    GtkMenuItem::arrow-spacing = 15
-    GtkMenuItem::toggle-spacing = 15
-
-    fg[NORMAL] = "#FFFFFF"
-
-    xthickness = 15
-    ythickness = 10
-}
-
-style "checkmenuitem"
-{
-    GtkCheckMenuItem::indicator-size = 26
-    GtkMenuItem::toggle-spacing = 10
-}
-
-style "imagemenuitem"
-{
-
-}
-
-style "separatormenuitem"
-{
-   fg[NORMAL] = "#FFFFFF"
-
-   GtkWidget::wide-separators = 1
-   GtkWidget::separator-height = 30
-
-   ythickness = 0
-   xthickness = 0
-}
-
-style "trayicon"
-{
+.entry {
+    border-width: 2px;
+    border-style: solid;
+    background-color: @white;
+    color: @black;
     
+    
+    padding: 6px 8px 6px 8px;
 }
 
-style "parent-bg"
-{
-    fg[NORMAL]="#FFFFFF"
-    engine "sugar" {
-        bg[NORMAL] = parent_bg_color
-        bg[INSENSITIVE] = parent_bg_color
-    }
+.entry.progressbar {
+    border-width: 2px;
+    background-color: @selection_grey;
 }
 
-style "label"{
-	fg[NORMAL]="#FFFFFF"
-}
-style "hseparator"{
-	fg[NORMAL]="#FFFFFF"
-}
-style "white_treeview"{
-	fg[NORMAL]="#000000"
-	/* base[NORMAL]="#000000" */
-	text[NORMAL]="#000000"
-	/* bg[NORMAL]="#000000" */
+.entry:focused {
+    background-color: @white;
 }
 
-####################################################################
-# Default style, setting some generic options and style properties
-####################################################################
-class "GtkWidget" style "default"
+.toolbar .entry:focused {
+    border-color: @white;
+}
+
+.entry:insensitive, .view:insensitive {
+    background-color: @button_grey;
+}
 
 
-####################################################################
-# Styles that apply the different background (and foreground) colors
-####################################################################
+.view:selected {
+    background-color: @panel_grey;
+    color: @black;
+}
 
-# This one should probably be the default (ie. no window-child style)
-widget_class "<GtkWindow>"               style "window"
-widget_class "<GtkWindow>*"              style "window-child"
+.view:insensitive {
+    background-color: @white;
+    color: @black;
+}
 
-widget_class "*<SugarAlert>"               style "black-bg"
-widget_class "*<SugarAlert>*"              style "black-bg-child"
-
-widget_class "*<SugarSectionView>"       style "white-bg"
-widget_class "*<SugarSectionView>*"      style "white-bg-child"
-
-
-# The notebook is very high, so that everything is overriden
-# Only the color of the tab labels needs to be modified inside the
-# notebooks in this style (and the widget itself).
-# Assume that there is either just a normal label in the notebook tab, or
-# it is inside a GtkBox (H- or VBox) together with eg. a close button.
-widget_class "*<GtkNotebook>"                        style "notebook-tab"
-widget_class "*<GtkNotebook>.<GtkLabel>"             style "notebook-tab"
-widget_class "*<GtkNotebook>.<GtkBox>.<GtkLabel>"    style "notebook-tab"
+.entry:selected,
+.entry:selected:focused,
+.view:selected:focused {
+    background-color: @selection_grey;
+    color: @black;
+}
 
 
-# SugarPalette and Menu
-widget_class "*<GtkMenu>"               style "menu"
-widget_class "<SugarPalette>"           style "menu"
-widget_class "<SugarPalette>.*"         style "menu-child"
-widget_class "<SugarPalette>*<GtkMenu>" style "palette-menu"
-widget_class "*<GtkMenuShell>.*"        style "menu-child"
+/* Frames */
 
-# SugarFrameWindow
-widget_class "*<SugarFrameWindow>*"    style "frame"
+GtkScrolledWindow.frame {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 0;
+    padding: 4px;
+}
 
-# SugarPanel
-widget_class "*<SugarPanel>*"          style "panel"
+GtkFrame.frame.journal-preview-box {
+    border-style: solid;
+    border-width: 2px;
+}
 
+/* Combo boxes */
 
-# GroupBoxes (don't set bg[NORMAL] on the widget itself)
-widget_class "<GtkWindow>*<SugarGroupBox>*"   style "groupbox-panel-child"
+GtkComboBox {
+    color: @white;
+    border-color: @white;
+}
 
-widget_class "<GtkWindow>*<GtkNotebook>*"   style "groupbox-panel-child"
-widget_class "<GtkWindow>*<GtkNotebook>"    style "notebook-panel"
+GtkComboBox .separator {
+    /* Remove the separator turning it transparent */
+    color: alpha(@theme_base_color, 0.0);
+}
 
+/* Notebooks */
 
-widget_class "<SugarPalette>*<SugarGroupBox>*"   style "groupbox-palette-child"
+.notebook {
+    background-color: @selection_grey;
+    color: @black;
+    padding: 0px;
+    -GtkNotebook-tab-overlap: -2;
+    -GtkNotebook-tab-curvature: 4;
+}
 
+.notebook tab {
+    background-color: @selection_grey;
+}
 
-# SugarToolbox
-#widget_class "*<SugarToolbox>" style "toolbox"
-#widget_class "*<SugarToolbox>*" style "toolbox-child"
-#widget_class "*<SugarToolbox>*<GtkEventBox>" style "toolbox"
-#widget_class "*<SugarToolbox>*<GtkLayout>"   style "toolbox"
-widget_class "*<SugarToolbox>*"        style "toolbox"
-widget_class "*<GtkToolbar>*"          style "toolbox"
-widget_class "*<SugarToolbox>.<GtkNotebook>" style "toolbox-notebook"
+/* Setting white color to the tab labels using only the previous rule */
+/* doesn't work, so we have to set white color to the GtkLabel, and make */
+/* sure the buttons get black color in the next two rules: */
+.notebook tab GtkLabel {
+    color: @white;
+    padding: 11px 0;
+}
 
+.notebook tab .button GtkLabel {
+    color: @black;
+}
 
-####################################################################
-# Normal widget styles, using the above things
-####################################################################
-# The following only uses widget_class matches to get the priority
-# right. An alternative would be to lower the priority of the
-# background matches (which need widget_class) to eg. "application"
-
-widget_class "*<GtkMenuItem>*"            style "menuitem"
-widget_class "*<GtkCheckMenuItem>"        style "checkmenuitem"
-widget_class "*<GtkImageMenuItem>"        style "imagemenuitem"
-widget_class "*<GtkSeparatorMenuItem>*"   style "separatormenuitem"
-
-# Buttons and Combos
-widget_class "*<GtkButton>*"           style "button"
-widget_class "*<GtkCheckButton>*"      style "checkbutton"
-widget_class "*<GtkComboBox>*"         style "combobox"
-widget_class "*<GtkComboBoxEntry>*"    style "comboboxentry"
-widget_class "*<GtkCombo>*"            style "comboboxentry"
-
-# Entries
-widget_class "*<GtkEntry>"       style "entry"
-widget_class "*<GtkSpinButton>"  style "spinbutton"
-widget_class "*<GtkTextView>"    style "textview"
+.notebook tab:active {
+    background-color: @black;
+}
 
 
-# Misc widgets
-widget_class "*<GtkHScrollbar>"  style "hscrollbar"
-widget_class "*<GtkVScrollbar>"  style "vscrollbar"
-widget_class "*<GtkHScale>"      style "hscale"
-widget_class "*<GtkVScale>"      style "vscale"
-widget_class "*<GtkProgressBar>" style "progressbar"
+/* Browse Widgets */
 
-# Scrolled window scrollbars
-widget_class "*<GtkScrolledWindow>.<GtkVScrollbar>" style "vscrollbar-scrolled-window"
-widget_class "*<GtkScrolledWindow>.<GtkHScrollbar>" style "hscrollbar-scrolled-window"
+BrowseTabPage {
+    background-color: @black;
+}
 
-# Toolbar
-widget_class "*<GtkToolButton>*"          style "toolbutton"
-widget_class "*<GtkSeparatorToolItem>*"   style "separatortoolbutton"
-widget_class "*<GtkToolbar>"              style "toolbar"
+BrowseSearchWindow .view {
+    background-color: @black;
+    color: @white;
+    border-width: 0 2px 2px 2px;
+    border-style: solid;
+}
 
-# Tray
-widget_class "*<SugarTrayIcon>*" style "trayicon"
+/* Control panel */
 
-# Widgets that should get the background color from the parent
-widget_class "*<GtkEventBox>"        style "parent-bg"
-widget_class "*<GtkLayout>"          style "parent-bg"
-widget_class "*<GtkViewport>"        style "parent-bg"
-widget_class "*<GtkDrawingArea>"     style "parent-bg"
-widget_class "*<GtkScrolledWindow>"  style "parent-bg"
+SugarSectionView {
+    background-color: @white;
+    color: @black;
+}
 
-widget_class "*<GtkLabel>*"	     style "label"
-widget_class "*<GtkHSeparator>*"      style "hseparator"
+SugarSectionView *:insensitive {
+    background-color: @white;
+}
 
-widget_class "*<JournalTreeView>*" style "white_treeview"
-widget_class "*<SugarActivitiesTreeView>*" style "white_treeview"
+/* Alert */
+
+SugarAlert {
+    background-color: @black;
+    color: @white;
+}
+
+SugarAlert *:insensitive {
+    background-color: @black;
+}
+
+.button SugarTimeoutIcon GtkLabel,
+.button SugarTimeoutIcon GtkLabel:prelight {
+    background-color: @white;
+    color: @button_grey;
+}
+
+.button SugarTimeoutIcon GtkLabel:active {
+    background-color: @toolbar_grey;
+    color: @white;
+}
+
+/* Tray */
+
+SugarHTray, SugarVTray {
+    background-color: @toolbar_grey;
+}
+
+SugarHTray * , SugarVTray * { background-color: @toolbar_grey;}
+
+/* Menus and palettes */
+
+SugarPaletteWindowWidget {
+    border-width: 2px;
+    border-style: solid;
+    background-color: @black;
+    color: @white;
+}
+
+SugarPaletteWindowWidget .view {
+    color: @black;
+}
+
+SugarPaletteMenuWidget {
+    background-color: @black;
+}
+
+SugarPaletteMenuWidget * {
+    color: @white;
+}
+
+
+SugarPaletteWindow SugarGroupBox {
+    background-color: @toolbar_grey;
+    color: @white;
+}
+
+SugarPaletteWindow SugarGroupBox *:insensitive {
+    background-color: @toolbar_grey;
+}
+
+.menu {
+    color: @white;
+
+    -GtkMenu-scroll-arrow-vlength: 19;
+    -GtkMenu-horizontal-padding: 2;
+    -GtkMenu-vertical-padding  : 2;
+    /* This means the outline of the submenu overlaps with a palette.
+     * However in the case of two normal menus, they are next to each other.
+     * It is not possible to be smarter about this, because the style comes from
+     * the submenu. */
+    -GtkMenu-horizontal-offset : 0;
+    -GtkMenu-vertical-offset   : 0;
+
+    padding: 0px 0px 11px 0px;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.menu :active {
+    background-color: @button_grey;
+}
+
+.menuitem {
+    padding: 11px 8px;
+}
+
+.menuitem.separator {
+    padding: 11px 0px;
+}
+
+SugarPaletteHeader.menuitem {
+    padding: 0px 8px;
+}
+
+SugarPaletteHeaderSeparator.menuitem.separator {
+    padding: 0px 0px 11px 0px;
+}
+
+.tooltip {
+    border-style: solid;
+    border-width: 2px;
+}
+
+.tooltip * {
+    color: @white;
+}
+
+/* Scrollbars */
+
+.scrollbar {
+    -GtkRange-slider-width: 11;
+    -GtkRange-trough-border: 0;
+    -GtkRange-stepper-size: 0;
+    -GtkScrollbar-min-slider-length: 33;
+    -GtkScrollbar-has-forward-stepper: 0;
+    -GtkScrollbar-has-backward-stepper: 0;
+    -GtkScrollbar-has-secondary-forward-stepper: 0;
+    -GtkScrollbar-has-secondary-backward-stepper: 0;
+}
+
+.scrollbar.trough {
+    background-color: @button_grey;
+    border-width: 0px;
+}
+
+.scrollbar.slider {
+    background-color: @white;
+    border-width: 0px;
+}
+
+.scrollbar.slider:active {
+    background-color: @text_field_grey;
+}
+
+/* Progress bars */
+
+/* Scrollbar padding hack? What was that about? */
+
+GtkProgressBar.progressbar {
+    background-color: @white;
+    border-style: solid;
+    border-width: 2px;
+}
+
+GtkProgressBar.trough {
+    background-color: @selection_grey;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.toolbar GtkProgressBar.trough,
+SugarPaletteWindowWidget GtkProgressBar.trough {
+    background-color: @black;
+}
+
+/* Separators */
+
+.separator {
+    border-style: solid;
+    border-width: 2px;
+}
+
+/* Tool buttons */
+
+.toolbar {
+padding: 0px;
+background-color: @toolbar_grey;
+color: @white;
+}
+
+.toolbar .button,
+SugarPaletteWindowWidget SugarRadioToolButton .button {
+    border-radius: 0px;
+    border-style: none;
+}
+
+.toolbar .button #gtk-toolbar-arrow {
+    padding: 0 15px;
+}
+
+.toolbar GtkToolButton .button,
+.toolbar SugarRadioToolButton *,
+SugarPaletteWindowWidget SugarRadioToolButton *,
+SugarPaletteWindowWidget GtkToolButton .button {
+    padding: 7px;
+}
+
+.toolbar GtkToolButton .button,
+SugarPaletteWindowWidget GtkToolButton .button:prelight {
+    padding: 3px;
+    border-width: 4px;
+    border-style: solid;
+    background-clip: padding-box;
+}
+
+
+.toolbar GtkToolButton .button:active {
+}
+
+SugarPaletteWindowWidget GtkScrolledWindow * {
+    background-color: @black;
+}
+
+
+/* Scales */
+
+.scale {
+    -GtkScale-slider-length: 24;
+    -GtkRange-slider-width: 24;
+}
+
+/* We have to override the color of the scale, otherwise the slider
+   background image is invisible or not set for this palettes.
+   Upstream bug: https://bugzilla.gnome.org/show_bug.cgi?id=686703 */
+SugarPaletteWindowWidget .scale {
+    color: transparent;
+}
+
+.scale.trough {
+    background-color: @button_grey;
+    border-style: solid;
+    border-width: 2px;
+    margin: 8px 0;
+}
+
+.scale.trough.vertical {
+    margin: 0 8px;
+}
+
+
+.scale.trough.top,
+.scale.trough.left {
+    background-color: @white;
+}
+
+.scale.trough.top:focused,
+.scale.trough.left:focused {
+}
+
+
+.scale.slider,
+.scale.slider:active {
+    background-color: transparent;
+}
+
+.scale.slider {
+    background-image: url("assets/scale-slider.svg");
+}
+
+.scale.slider:active {
+    background-image: url("assets/scale-slider-active.svg");
+}
+
+/* Radio and check buttons */
+
+GtkCheckButton:prelight {
+    background-color: alpha(@theme_base_color, 0.0);
+}
+
+.toolbar GtkCheckButton,
+SugarPaletteWindowWidget GtkCheckButton {
+    color: @theme_base_color;
+}
+
+.radio,
+.radio row:selected,
+.radio row:selected:focused {
+    background-image: url("assets/radio.svg");
+}
+
+.radio:selected,
+.radio:selected row:selected,
+.radio:selected row:selected:focused {
+    background-image: url("assets/radio-selected.svg");
+}
+
+.radio:active,
+.radio row:selected:active,
+.radio row:selected:focused:active {
+    background-image: url("assets/radio-active.svg");
+}
+
+.radio:active:selected,
+.radio:selected row:selected:active,
+.radio:selected row:selected:focused:active {
+    background-image: url("assets/radio-active-selected.svg");
+}
+
+.check,
+.check row:selected,
+.check row:selected:focused {
+    background-image: url("assets/checkbox-unchecked.svg");
+}
+
+.check:selected,
+.check:selected row:selected,
+.check:selected row:selected:focused {
+    background-image: url("assets/checkbox-unchecked-selected.svg");
+}
+
+.check:active,
+.check row:selected:active,
+.check row:selected:focused:active {
+    background-image: url("assets/checkbox-checked.svg");
+}
+
+.check:active:selected,
+.check:selected row:selected:active,
+.check:selected row:selected:focused:active {
+    background-image: url("assets/checkbox-checked-selected.svg");
+}
+
+/* Tool items */
+
+.toolitem {
+    /* arrow in the toolbarbox */
+    color: @white;
+    /* outline of the toolbarbutton when palette is expanded */
+    border-style: solid;
+    border-width: 2px;
+}
+
+/* GtkImage */
+
+GtkImage {
+    background-color: transparent;
+}
+
+/* Sugar Frame Window */
+
+SugarFrameWindow {
+    background-color: @toolbar_grey;
+}
+
+/* Sugar Canvas icon */
+
+SugarCanvasIcon,
+SugarKeepIcon.button {
+    border-width: 2px;
+    border-style: solid;
+}
+
+SugarCanvasIcon:prelight,
+
+
+/* Sugar CellRenderer Icons */
+
+.cell.sugar-icon-cell {
+    border-width: 2px;
+    border-style: solid;
+}
+
+
+/* Text cursor handles */
+
+.cursor-handle.top,
+.cursor-handle.bottom {
+    box-shadow: none;
+    border-style: none;
+    border-image: none;
+    border-radius: 0px;
+    border-width: 0px;
+}
+
+.cursor-handle.bottom {
+    background-image: url("assets/cursor-handle-bottom.svg");
+}
+
+.cursor-handle.top {
+    background-image: url("assets/cursor-handle-top.svg");
+}
+
+.cursor-handle.insertion-cursor {
+    background-image: url("assets/cursor-handle-insertion.svg");
+}
+
+/* Application specific properties */
+
+EvView {
+    background-color: @panel_grey;
+}
+
+EvView:selected,
+ApDocView:selected {
+    background-color: @selection_grey;
+}
+
+/* Application specific properties */
+
+EvView {
+    background-color: @panel_grey;
+}
+
+EvView:selected,
+ApDocView:selected {
+    background-color: @selection_grey;
+}
