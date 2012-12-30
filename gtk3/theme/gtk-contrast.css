@@ -25,5 +25,5 @@
 /* Colormap actually used by the theme, to be overridden in other css files */
 @define-color theme_base_color @base_color;
 
-@import url("gtk-widgets.css");
+@import url("gtk-contrast-widgets.css");
 
