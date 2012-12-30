@@ -72,14 +72,14 @@ install-data-local: $(GEN_FILES)
 		$(DESTDIR)$(datadir)/themes/sugar-72-contrast/gtk-3.0/gtk-contrast-widgets.css
 	$(INSTALL_DATA) $(top_builddir)/gtk3/theme/settings-contrast-72.ini \
 		$(DESTDIR)$(datadir)/themes/sugar-72-contrast/gtk-3.0/settings.ini
-	$(INSTALL_DATA) $(srcdir)/gtk.css \
+	$(INSTALL_DATA) $(srcdir)/gtk-contrast.css \
 		$(DESTDIR)$(datadir)/themes/sugar-72-contrast/gtk-3.0/gtk.css
 	$(mkinstalldirs) $(DESTDIR)$(datadir)/themes/sugar-100-contrast/gtk-3.0
 	$(INSTALL_DATA) $(top_builddir)/gtk3/theme/gtk-contrast-widgets-100.css \
 		$(DESTDIR)$(datadir)/themes/sugar-100-contrast/gtk-3.0/gtk-contrast-widgets.css
 	$(INSTALL_DATA) $(top_builddir)/gtk3/theme/settings-contrast-100.ini \
 		$(DESTDIR)$(datadir)/themes/sugar-100-contrast/gtk-3.0/settings.ini
-	$(INSTALL_DATA) $(srcdir)/gtk.css \
+	$(INSTALL_DATA) $(srcdir)/gtk-contrast.css \
 		$(DESTDIR)$(datadir)/themes/sugar-100-contrast/gtk-3.0/gtk.css
 
 uninstall-local:
