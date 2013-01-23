@@ -119,11 +119,7 @@ icon_DATA =						\
 	zoom-original.svg				\
 	zoom-out.svg					\
 	zoom-to-width.svg				\
-	entry-cancel.svg				\
-	entry-search.svg				\
-	entry-stop.svg					\
-	entry-refresh.svg
-
+	entry-cancel.svg
 
 EXTRA_DIST = $(icon_DATA)
 
