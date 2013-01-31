@@ -78,7 +78,7 @@
 /* Backgrounds and windows */
 
 GtkWindow {
-    background-color: @panel_grey;
+    background-color: @black;
     color: @black;
 }
 
