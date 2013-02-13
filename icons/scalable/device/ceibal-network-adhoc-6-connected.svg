@@ -1,0 +1,71 @@
+<?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd' [
+	<!ENTITY stroke_color "#010101">
+	<!ENTITY fill_color "#ffffff">
+]>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.0"
+   width="55"
+   height="55"
+   id="svg4502"
+   style="display:inline">
+  <defs
+     id="defs4504" />
+  <metadata
+     id="metadata4507">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer3"
+     style="display:inline">
+    <path
+       d="M 27.501337,3.2500069 6.4992369,15.374336 l 0,24.25 21.0021001,12.12567 20.999419,-12.12567 0,-24.25 L 27.501337,3.2500069 z"
+       id="path3408"
+       style="fill:&fill_color;stroke:none" />
+    <path
+       d="M 27.501337,3.2499935 6.4992369,15.374323 l 0,24.25 21.0021001,12.12567 20.999419,-12.12567 0,-24.25 L 27.501337,3.2499935 z M 44.377546,37.242351 27.501337,46.98739 10.623788,37.242351 l 0,-19.487397 16.877549,-9.7436981 16.876209,9.7436981 0,19.487397 z"
+       id="path3422"
+       style="fill:&stroke_color;" />
+  </g>
+  <g
+     id="layer1">
+    <rect
+       width="13.910348"
+       height="3.8798773"
+       x="20.546124"
+       y="29.71237"
+       id="rect2492"
+       style="fill:&stroke_color;" />
+    <circle
+       cx="399.73599"
+       cy="293.69299"
+       r="3.082"
+       transform="matrix(1.2601095,0,0,1.2601095,-476.2105,-347.25442)"
+       id="circle2496"
+       style="fill:&stroke_color;" />
+    <polygon
+       points="411.98,282.09 410.441,284.756 418.48,289.397 418.48,311.044 410.441,315.686 411.98,318.352 421.559,312.821 421.559,287.62 421.559,287.62 "
+       transform="matrix(1.2601095,0,0,1.2601095,-476.2105,-351.25442)"
+       id="polygon2498"
+       style="fill:&stroke_color;" />
+    <polygon
+       points="380.99,289.397 389.029,284.757 387.49,282.091 377.912,287.62 377.912,312.821 387.49,318.351 389.029,315.685 380.99,311.044 380.99,311.044 "
+       transform="matrix(1.2601095,0,0,1.2601095,-476.2105,-351.25442)"
+       id="polygon2500"
+       style="fill:&stroke_color;" />
+  </g>
+</svg>

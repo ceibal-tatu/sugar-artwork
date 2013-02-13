@@ -38,6 +38,12 @@ icon_DATA =				\
 	battery-charging-100.svg	\
 	camera-external.svg		\
 	camera.svg			\
+	ceibal-network-adhoc-1-connected.svg	\
+	ceibal-network-adhoc-1.svg		\
+	ceibal-network-adhoc-6-connected.svg	\
+	ceibal-network-adhoc-6.svg		\
+	ceibal-network-adhoc-11-connected.svg	\
+	ceibal-network-adhoc-11.svg		\
 	computer.svg			\
 	computer-error.svg              \
 	computer-happy.svg              \
