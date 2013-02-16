@@ -314,9 +314,17 @@ GtkComboBox {
     color: @white;
 }
 
-GtkComboBox .separator {
-    /* Remove the separator turning it transparent */
-    color: alpha(@theme_base_color, 0.0);
+GtkComboBox .menu.button {
+    border-color: transparent;
+    border-radius: 0px;
+    border-style: none;
+    background-color: transparent;
+    color: @white;
+}
+
+GtkComboBox .menu {
+    -GtkWidget-scroll-arrow-hlength: $(my_floor(2.5 * subcell_size));
+    -GtkWidget-scroll-arrow-vlength: $(my_floor(2.5 * subcell_size));
 }
 
 /* Notebooks */
@@ -327,6 +335,12 @@ GtkComboBox .separator {
     padding: 0px;
     -GtkNotebook-tab-overlap: -2;
     -GtkNotebook-tab-curvature: $default_padding;
+    -GtkWidget-scroll-arrow-hlength: $(my_floor(2.5 * subcell_size));
+    -GtkWidget-scroll-arrow-vlength: $(my_floor(2.5 * subcell_size));
+}
+
+.notebook.arrow {
+    color: @white;
 }
 
 .notebook tab {
