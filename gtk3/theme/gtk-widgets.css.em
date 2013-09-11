@@ -641,8 +641,13 @@ SugarPaletteWindowWidget GtkScrolledWindow * {
 /* Scales */
 
 .scale {
-    -GtkScale-slider-length: $scale_slider_width;
-    -GtkRange-slider-width: $scale_slider_width;
+    -GtkScale-slider-length: 32;
+    -GtkRange-slider-width: 32;
+    engine:unico;
+        -unico-focus-border-color: transparent;
+        -unico-focus-fill-color: transparent;
+        -unico-focus-outer-stroke-color: transparent;
+        -unico-inner-stroke-color: transparent;
 }
 
 /* We have to override the color of the scale, otherwise the slider
